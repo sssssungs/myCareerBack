@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const db = require('../db');
 require("dotenv").config();
 app = express();
 const portfolio = require('../apps/api/portfolio');
@@ -11,6 +12,7 @@ function handleListening () {
 }
 
 app.listen(PORT, handleListening);
+db();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/portfolio', portfolio);

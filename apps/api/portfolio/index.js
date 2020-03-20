@@ -6,6 +6,6 @@ const controller = require("./controller");
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true })); // possible to parse nested object
 
-router.get('/', controller.getCareer);
+router.get('/', controller.getAllPortfolio);
 
 module.exports = router;

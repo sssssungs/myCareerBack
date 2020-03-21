@@ -7,5 +7,6 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true })); // possible to parse nested object
 
 router.get('/', controller.getAllPortfolio);
+router.get('/:hashtag', controller.getHashTagSearch);
 
 module.exports = router;

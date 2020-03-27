@@ -8,5 +8,7 @@ router.use(bodyParser.urlencoded({ extended: true })); // possible to parse nest
 
 router.get('/', controller.getAllJournal);
 router.post('/', controller.saveNewJournal);
+router.post('/delete', controller.deleteJournal);
+
 
 module.exports = router;

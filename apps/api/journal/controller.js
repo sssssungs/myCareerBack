@@ -12,9 +12,16 @@ exports.saveNewJournal = (req, res) => {
   journal.title = req.body.title;
   journal.date = req.body.date;
   journal.content = req.body.content;
-  console.log(req.body);
 
   journal.save((err, data) => {
+    console.log(">>>>>> save new journal");
+    return res.json(data)
+  })
+}
+
+exports.deleteJournal = (req, res) => {
+  journalModel.remove({ _id: req.body.id }, (err, data) => {
+    console.log(">>>>> delete execute")
     return res.json(data)
   })
 }

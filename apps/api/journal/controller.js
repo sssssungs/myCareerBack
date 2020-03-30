@@ -1,8 +1,9 @@
 const journalModel = require('../../../db/model/journal')
+const moment = require('moment');
 
 exports.getAllJournal = (req, res) => {
   journalModel.find().sort([["createdAt", -1]]).exec((err, data) => {
-    console.log('>>>>>>> get jour');
+    // console.log('>>>>>>> get jour');
     return res.json(data);
   });
 }
@@ -14,14 +15,28 @@ exports.saveNewJournal = (req, res) => {
   journal.content = req.body.content;
 
   journal.save((err, data) => {
-    console.log(">>>>>> save new journal");
+    // console.log(">>>>>> save new journal");
     return res.json(data)
   })
 }
 
 exports.deleteJournal = (req, res) => {
   journalModel.remove({ _id: req.body.id }, (err, data) => {
-    console.log(">>>>> delete execute")
+    // console.log(">>>>> delete execute")
     return res.json(data)
   })
+}
+
+exports.getTodaysJournal = (req, res) => {
+  const today = moment().startOf('day');
+  
+  journalModel.find({
+    createdAt: {
+      $gte: today.toDate(),
+      $lte: moment(today).endOf('day').toDate()
+    }}
+    ).sort([["createdAt", -1]]).exec((err, data) => {
+    console.log('>>>>>>> get today\'s');
+    return res.json(data);
+  });
 }

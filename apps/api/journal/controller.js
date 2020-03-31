@@ -40,3 +40,4 @@ exports.getTodaysJournal = (req, res) => {
     return res.json(data);
   });
 }
+

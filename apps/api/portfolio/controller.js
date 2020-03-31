@@ -18,3 +18,13 @@ exports.getHashTagSearch = (req, res) => {
   })
 }
 
+
+exports.getAllSkills = (req, res) => {
+  projectModel.find({}, 'skills').exec((err, data) => {
+    console.log('>>>>>>> get skill list');
+    let rtn = [];
+    data.map(o => rtn.push(...o["skills"]));
+    rtn = Array.from(new Set(rtn));
+    return res.json({ data: rtn });
+  });
+}

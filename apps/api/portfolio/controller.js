@@ -23,8 +23,14 @@ exports.getAllSkills = (req, res) => {
   projectModel.find({}, 'skills').exec((err, data) => {
     console.log('>>>>>>> get skill list');
     let rtn = [];
+    let cnt = {};
     data.map(o => rtn.push(...o["skills"]));
-    rtn = Array.from(new Set(rtn));
-    return res.json({ data: rtn });
+    rtn.map(o => {
+      if(cnt[o]) cnt[o] +=1;
+      else cnt[o] = 1;
+    })
+    // console.log(cnt)
+    // rtn = Array.from(new Set(rtn));
+    return res.json(cnt);
   });
 }

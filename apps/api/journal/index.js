@@ -11,6 +11,8 @@ router.get('/todays', controller.getTodaysJournal)
 
 router.post('/', controller.saveNewJournal);
 router.post('/delete', controller.deleteJournal);
+router.post('/update', controller.updateJournal);
+
 
 
 module.exports = router;

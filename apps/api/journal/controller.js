@@ -21,8 +21,21 @@ exports.saveNewJournal = (req, res) => {
 }
 
 exports.deleteJournal = (req, res) => {
-  journalModel.remove({ _id: req.body.id }, (err, data) => {
+  journalModel.deleteOne({ _id: req.body.id }, (err, data) => {
     // console.log(">>>>> delete execute")
+    return res.json(data)
+  })
+}
+
+exports.updateJournal = (req, res) => {
+  console.log(req.body)
+  journalModel.updateOne(
+    { _id: req.body._id },
+    { $set : { title: req.body.title, content: req.body.content} },
+     (err, data) => {
+       console.log(data)
+       console.log(err)
+    console.log(">>>>> update execute")
     return res.json(data)
   })
 }

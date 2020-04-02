@@ -28,10 +28,9 @@ exports.deleteJournal = (req, res) => {
 }
 
 exports.updateJournal = (req, res) => {
-  console.log(req.body)
-  journalModel.updateOne(
+  journalModel.findOneAndUpdate(
     { _id: req.body._id },
-    { $set : { title: req.body.title, content: req.body.content} },
+    { title: req.body.title, content: req.body.content },
      (err, data) => {
        console.log(data)
        console.log(err)

@@ -8,7 +8,8 @@ router.use(bodyParser.urlencoded({ extended: true })); // possible to parse nest
 
 router.get('/', controller.getAllPortfolio);
 router.get('/:hashtag', controller.getHashTagSearch);
-
 router.get('/all/skills', controller.getAllSkills);
+
+router.post('/', controller.saveNewProject)
 
 module.exports = router;

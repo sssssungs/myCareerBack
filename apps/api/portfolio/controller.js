@@ -34,3 +34,20 @@ exports.getAllSkills = (req, res) => {
     return res.json(cnt);
   });
 }
+
+exports.saveNewProject = (req, res) => {
+  let project = new projectModel();
+  project.title = req.body.title;
+  project.category = req.body.category;
+  project.fromDate = req.body.fromDate;
+  project.toDate = req.body.toDate;
+  project.role = req.body.role;
+  project.content = req.body.content;
+  project.skills = req.body.skills.replace(/\s/g, "").split(",").filter(o => o.length > 0);
+  console.log(project)
+  project.save((err, data) => {
+    console.log("new project save !");
+    return res.json(data);
+  })
+
+}

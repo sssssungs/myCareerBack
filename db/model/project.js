@@ -5,7 +5,8 @@ const projectSchema = new mongoose.Schema({
   toDate: Date,
   skills: [String],
   role: String,
+  category: String,
   content: String
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('Project', projectSchema);

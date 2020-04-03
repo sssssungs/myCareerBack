@@ -36,7 +36,7 @@ exports.getAllSkills = (req, res) => {
 }
 
 exports.deleteProject = (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   projectModel.deleteOne({ _id: req.body.id }, (err, data) => {
     console.log("delete project")
     // console.log(">>>>> delete execute")

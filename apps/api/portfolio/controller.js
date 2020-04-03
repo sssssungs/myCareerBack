@@ -35,6 +35,15 @@ exports.getAllSkills = (req, res) => {
   });
 }
 
+exports.deleteProject = (req, res) => {
+  console.log(req.body)
+  projectModel.deleteOne({ _id: req.body.id }, (err, data) => {
+    console.log("delete project")
+    // console.log(">>>>> delete execute")
+    return res.json(data)
+  })
+}
+
 exports.saveNewProject = (req, res) => {
   let project = new projectModel();
   project.title = req.body.title;

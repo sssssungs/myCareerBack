@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema({
   title: String,
-  fromDate: Date,
-  toDate: Date,
+  fromDate: String,
+  toDate: String,
   skills: [String],
   role: String,
   category: String,

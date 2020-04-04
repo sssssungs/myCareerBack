@@ -1,3 +1,3 @@
 ## Hello 
 This is my personal project  
-express, mongodb, mongoose
+express, mongodb, mongoose, lodash

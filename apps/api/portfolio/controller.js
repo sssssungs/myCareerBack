@@ -25,6 +25,7 @@ exports.getAllSkills = (req, res) => {
     let rtn = [];
     let cnt = {};
     data.map(o => rtn.push(...o["skills"]));
+    rtn.sort();
     rtn.map(o => {
       if(cnt[o]) cnt[o] +=1;
       else cnt[o] = 1;

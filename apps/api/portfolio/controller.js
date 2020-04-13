@@ -61,3 +61,26 @@ exports.saveNewProject = (req, res) => {
   })
 
 }
+
+
+
+exports.updateProject = (req, res) => {
+  // console.log(">>>>>>>---->>>", req.body)
+  projectModel.findOneAndUpdate(
+    { _id: req.body._id },
+    { 
+      title: req.body.title, 
+      content: req.body.content,
+      category: req.body.category,
+      fromDate: req.body.fromDate,
+      toDate: req.body.toDate,
+      role: req.body.role,
+      skills: req.body.skills
+     },
+     (err, data) => {
+      console.log(data)
+      console.log(err)
+      console.log(">>>>> update execute")
+      return res.json(data)
+  })
+}

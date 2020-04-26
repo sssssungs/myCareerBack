@@ -54,7 +54,7 @@ exports.saveNewProject = (req, res) => {
   project.role = req.body.role;
   project.content = req.body.content;
   project.skills = req.body.skills.replace(/\s/g, "").split(",").filter(o => o.length > 0);
-  console.log(project)
+  // console.log(project)
   project.save((err, data) => {
     console.log("new project save !");
     return res.json(data);

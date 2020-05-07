@@ -8,12 +8,10 @@ exports.getAllPortfolio = (req, res) => {
 }
 
 exports.getHashTagSearch = (req, res) => {
-  // PersonModel.find({ favouriteFoods: "sushi" }, ...);
   console.log("aaa", req.params.hashtag); 
   const hashtag = req.params.hashtag.replace(":","");
   projectModel.find({ skills: hashtag }, (err, data) => {
     console.log("hash tag search : " , hashtag);
-    // console.log(data)
     return res.json(data);
   })
 }
@@ -30,14 +28,12 @@ exports.getAllSkills = (req, res) => {
       if(cnt[o]) cnt[o] +=1;
       else cnt[o] = 1;
     })
-    // console.log(cnt)
-    // rtn = Array.from(new Set(rtn));
     return res.json(cnt);
   });
 }
 
 exports.deleteProject = (req, res) => {
-  // console.log(req.body)
+  console.log(req.body)
   projectModel.deleteOne({ _id: req.body.id }, (err, data) => {
     console.log("delete project")
     // console.log(">>>>> delete execute")
@@ -56,7 +52,7 @@ exports.saveNewProject = (req, res) => {
   project.skills = req.body.skills.replace(/\s/g, "").split(",").filter(o => o.length > 0);
   // console.log(project)
   project.save((err, data) => {
-    console.log("new project save !");
+    console.log("project saved!");
     return res.json(data);
   })
 
@@ -79,7 +75,7 @@ exports.updateProject = (req, res) => {
      },
      (err, data) => {
       console.log(data)
-      console.log(err)
+      // console.log(err)
       console.log(">>>>> update execute")
       return res.json(data)
   })

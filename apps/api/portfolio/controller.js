@@ -3,6 +3,7 @@ const projectModel = require('../../../db/model/project')
 exports.getAllPortfolio = (req, res) => {
   projectModel.find((err, data) => {
     console.log('>>>>>>> get port');
+    // console.log(data)
     return res.json(data);
   });
 }
@@ -50,18 +51,20 @@ exports.saveNewProject = (req, res) => {
   project.role = req.body.role;
   project.content = req.body.content;
   project.skills = req.body.skills.replace(/\s/g, "").split(",").filter(o => o.length > 0);
+  console.log(project.skills)
   // console.log(project)
   project.save((err, data) => {
     console.log("project saved!");
     return res.json(data);
   })
 
+
 }
 
 
 
 exports.updateProject = (req, res) => {
-  // console.log(">>>>>>>---->>>", req.body)
+  console.log(">>>>>>>---->>>", req.body)
   projectModel.findOneAndUpdate(
     { _id: req.body._id },
     { 

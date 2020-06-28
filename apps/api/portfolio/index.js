@@ -13,9 +13,7 @@ router.get('/all/skills', controller.getAllSkills);
 router.post('/', controller.saveNewProject)
 router.post('/update', controller.updateProject)
 router.post('/delete', controller.deleteProject);
-// sungsik 
-// sungsik 2222
-// sungsik 33333
+// sungsik
 
 module.exports = router;
 

@@ -14,8 +14,7 @@ router.post('/', controller.saveNewProject)
 router.post('/update', controller.updateProject)
 router.post('/delete', controller.deleteProject);
 // sungsik
-// sssssss
-// wwwwwww
+
 module.exports = router;
 
 

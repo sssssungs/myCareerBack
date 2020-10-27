@@ -1,3 +1,3 @@
 ## Hello 
-This is my personal project  
-express, mongodb, mongoose, lodash
+This is my personal project  (backend)
+w/ express, mongodb, mongoose, lodash
